@@ -1977,10 +1977,17 @@ function handleDownload() {
   // Download via Google Drive — funciona em qualquer celular/browser
   const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
   const pdfUrl = isIOS
-    ? 'https://drive.google.com/file/d/1wqtgmi5QnOI1sCZ37zgqTpGzq5eswv6s/preview'      // iOS: abre no visualizador do Drive
-    : 'https://drive.google.com/uc?export=download&id=1wqtgmi5QnOI1sCZ37zgqTpGzq5eswv6s';    // Android/Desktop: download direto
+    ? 'https://drive.google.com/file/d/1nMVQ4tZw5W4cfflD_d-dAgCeRHbcrNeO/preview'      // iOS: abre no visualizador do Drive
+    : 'https://drive.google.com/uc?export=download&id=1nMVQ4tZw5W4cfflD_d-dAgCeRHbcrNeO';    // Android/Desktop: download direto
 
-  window.open(pdfUrl, '_blank');
+  // Use anchor click instead of window.open to bypass Safari popup blocker
+  const a = document.createElement('a');
+  a.href = pdfUrl;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 
   document.getElementById('downloadProgress').textContent = '✓ Abrindo seu guia...';
   document.getElementById('downloadProgress').style.animation = 'none';
