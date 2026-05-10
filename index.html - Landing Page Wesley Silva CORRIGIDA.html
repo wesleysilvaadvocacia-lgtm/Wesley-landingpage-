@@ -1,0 +1,1994 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preso em Flagrante — Guia Essencial | Dr. Wesley Silva</title>
+<meta name="description" content="O que fazer nas primeiras 72 horas após uma prisão. Guia gratuito do advogado criminalista Dr. Wesley Silva.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & BASE ──────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --noir:   #080810;
+  --deep:   #0E0E1C;
+  --dark:   #14142A;
+  --panel:  #1A1A32;
+  --border: #2A2A48;
+  --gold:   #C9A84C;
+  --gold2:  #E8C96A;
+  --gold3:  #A07830;
+  --cream:  #F5EDD8;
+  --warm:   #E0D0B0;
+  --muted:  #8888A8;
+  --white:  #FFFFFF;
+  --red:    #E05050;
+  --green:  #25D366;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--noir);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--noir); }
+::-webkit-scrollbar-thumb { background: var(--gold3); }
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+.container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+.label {
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  text-transform: uppercase;
+  display: block;
+}
+.gold { color: var(--gold); }
+.italic { font-style: italic; }
+
+.sticky-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(8,8,16,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+}
+.sticky-bar.visible { transform: translateY(0); }
+.sticky-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+.sticky-cta {
+  background: var(--gold);
+  color: var(--noir);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  padding: 10px 24px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+.sticky-cta:hover { background: var(--gold2); }
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+  padding: 120px 32px 80px;
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-left { position: relative; z-index: 1; }
+
+.hero-urgency {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 8px 16px;
+  margin-bottom: 32px;
+}
+.urgency-dot {
+  width: 6px; height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.urgency-text {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+}
+
+.hero-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.hero-headline em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 300;
+}
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(17px, 2vw, 21px);
+  color: var(--warm);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.hero-proof {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 44px;
+}
+.proof-item { text-align: center; }
+.proof-number {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.proof-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.hero-cta-group { display: flex; flex-direction: column; gap: 14px; }
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--gold);
+  color: var(--noir);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  padding: 18px 36px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+  text-align: center;
+}
+.btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
+.btn-primary svg { flex-shrink: 0; }
+
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--cream);
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding: 16px 36px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: all 0.25s;
+}
+.btn-secondary:hover { border-color: var(--gold3); color: var(--gold); }
+
+.hero-guarantee {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-guarantee span {
+  font-size: 12px;
+  color: var(--muted);
+}
+.hero-guarantee strong { color: var(--gold); font-weight: 500; }
+
+.hero-right {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+}
+
+.book-glow {
+  position: absolute;
+  inset: -40px;
+  background: radial-gradient(ellipse at center, rgba(201,168,76,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.book-cover {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(160deg, var(--dark) 0%, var(--noir) 100%);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: -20px 20px 60px rgba(0,0,0,0.6), 20px -10px 40px rgba(201,168,76,0.05);
+}
+
+.book-cover::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.book-cover::after {
+  content: '';
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+}
+
+.book-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 6px 12px;
+  width: fit-content;
+}
+
+.book-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  opacity: 0.06;
+}
+
+.book-title-area { position: relative; z-index: 1; }
+
+.book-cover-word1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+  display: block;
+}
+.book-cover-word2 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(14px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 4px;
+  display: block;
+  margin: 8px 0 4px;
+}
+.book-cover-word3 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+  display: block;
+}
+
+.book-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold3), transparent);
+  margin: 20px 0;
+}
+
+.book-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--warm);
+  line-height: 1.5;
+}
+
+.book-author {
+  position: relative;
+  z-index: 1;
+}
+.book-author-name {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  display: block;
+}
+.book-author-title {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.book-pages {
+  position: absolute;
+  right: -12px;
+  top: 8px;
+  bottom: 8px;
+  width: 12px;
+  background: linear-gradient(90deg, #2A2A40, #1A1A30);
+  border-right: 2px solid rgba(201,168,76,0.15);
+}
+
+.problem {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.problem-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.problem-left .section-label { margin-bottom: 24px; }
+
+.problem-headline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-bottom: 28px;
+}
+
+.problem-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  color: var(--warm);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.problem-text + .problem-text { margin-top: 16px; }
+
+.problem-fears {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fear-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--gold3);
+  transition: border-color 0.3s;
+}
+.fear-item:hover { border-left-color: var(--gold); }
+
+.fear-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fear-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--warm);
+  line-height: 1.5;
+}
+
+.solution {
+  padding: 100px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(201,168,76,0.03) 50%, transparent 100%);
+  position: relative;
+  z-index: 1;
+}
+
+.solution-header { text-align: center; margin-bottom: 72px; }
+
+.solution-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4.5vw, 54px);
+  font-weight: 300;
+  line-height: 1.2;
+  margin-top: 16px;
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.chapter-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: border-color 0.3s, background 0.3s;
+  cursor: default;
+}
+.chapter-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  background: rgba(201,168,76,0.04);
+}
+
+.chapter-number {
+  font-family: 'Cinzel', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: rgba(201,168,76,0.2);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 36px;
+  transition: color 0.3s;
+}
+.chapter-card:hover .chapter-number { color: rgba(201,168,76,0.5); }
+
+.chapter-info { flex: 1; }
+
+.chapter-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--cream);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.chapter-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.chapter-audience {
+  display: inline-block;
+  font-family: 'Cinzel', serif;
+  font-size: 8px;
+  letter-spacing: 2px;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.25);
+  padding: 3px 8px;
+  margin-top: 10px;
+}
+
+.author {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.author-inner {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.author-photo-area { position: relative; }
+
+.author-photo-frame {
+  width: 260px;
+  height: 320px;
+  background: var(--panel);
+  border: 1px solid rgba(201,168,76,0.3);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.author-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: linear-gradient(160deg, var(--dark), var(--noir));
+}
+
+.author-monogram {
+  font-family: 'Cinzel', serif;
+  font-size: 72px;
+  font-weight: 700;
+  color: rgba(201,168,76,0.15);
+  line-height: 1;
+}
+
+.author-photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(8,8,16,0.95), transparent);
+  padding: 32px 20px 16px;
+  text-align: center;
+}
+
+.author-photo-caption .name {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  display: block;
+}
+
+.author-corner {
+  position: absolute;
+  top: -8px; right: -8px;
+  width: 40px; height: 40px;
+  border-top: 2px solid var(--gold);
+  border-right: 2px solid var(--gold);
+}
+
+.author-content .section-label { margin-bottom: 20px; }
+
+.author-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.author-credential {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 28px;
+}
+
+.author-bio {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  color: var(--warm);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.author-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.specialty-tag {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  transition: all 0.25s;
+}
+.specialty-tag:hover { border-color: var(--gold3); color: var(--gold); }
+
+.testimonials {
+  padding: 100px 0;
+  background: var(--deep);
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.testimonials-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 300;
+  margin-top: 16px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.testimonial-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 32px;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: 16px; right: 20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  color: rgba(201,168,76,0.08);
+  line-height: 1;
+}
+
+.testimonial-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+.star { color: var(--gold); font-size: 14px; }
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--warm);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.testimonial-name {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--cream);
+}
+
+.testimonial-role {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.offer {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-box {
+  background: linear-gradient(145deg, var(--dark) 0%, var(--panel) 100%);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 72px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.offer-box::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 300px; height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.offer-eyebrow { margin-bottom: 24px; }
+
+.offer-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.offer-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  color: var(--warm);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 48px;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.offer-price-area {
+  margin-bottom: 48px;
+}
+
+.offer-free {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+
+.offer-free-label {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+
+.offer-includes {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 460px;
+  margin: 0 auto 48px;
+  text-align: left;
+}
+
+.include-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--warm);
+}
+
+.include-check {
+  width: 20px; height: 20px;
+  background: rgba(201,168,76,0.15);
+  border: 1px solid var(--gold3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+  color: var(--gold);
+}
+
+.offer-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-cta-group .btn-primary { min-width: 380px; font-size: 13px; padding: 20px 48px; }
+
+.offer-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.trust-icon { font-size: 16px; }
+
+.faq {
+  padding: 80px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.faq-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 300;
+  margin-top: 16px;
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.faq-item {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 22px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  transition: background 0.2s;
+}
+.faq-question:hover { background: rgba(201,168,76,0.04); }
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  border: 1px solid var(--gold3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--gold);
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-item.open .faq-answer { max-height: 300px; }
+
+.faq-answer-inner {
+  padding: 0 28px 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--warm);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.final-cta {
+  padding: 80px 0 120px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.final-cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4vw, 50px);
+  font-weight: 300;
+  line-height: 1.3;
+  margin: 16px 0 32px;
+}
+
+.final-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--gold);
+  color: var(--noir);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  padding: 20px 48px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s;
+  text-decoration: none;
+}
+.final-cta-btn:hover { background: var(--gold2); transform: translateY(-2px); }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 14px;
+  letter-spacing: 5px;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 12px;
+}
+
+footer p {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--gold); }
+
+.section-ornament {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 60px;
+  width: fit-content;
+}
+.section-ornament .line { width: 40px; height: 1px; background: var(--border); }
+.section-ornament .diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); opacity: 0.6; }
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 99;
+  background: var(--green);
+  color: white;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.3);
+  transition: transform 0.2s;
+  text-decoration: none;
+}
+.whatsapp-float:hover { transform: scale(1.08); }
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 100px 24px 60px;
+    gap: 48px;
+  }
+  .hero-urgency { margin: 0 auto 32px; }
+  .hero-proof { justify-content: center; }
+  .hero-guarantee { justify-content: center; }
+  .hero-right { order: -1; }
+  .book-wrapper { max-width: 280px; margin: 0 auto; }
+  .problem-inner { grid-template-columns: 1fr; gap: 48px; }
+  .author-inner { grid-template-columns: 1fr; gap: 48px; }
+  .author-photo-frame { width: 100%; max-width: 260px; margin: 0 auto; }
+  .chapters-grid { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .offer-box { padding: 48px 32px; }
+  .offer-cta-group .btn-primary { min-width: unset; width: 100%; }
+  .sticky-logo { display: none; }
+  .container { padding: 0 24px; }
+}
+
+@media (max-width: 600px) {
+  .hero-proof { gap: 20px; }
+  .offer-trust { flex-direction: column; gap: 12px; }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(4,4,12,0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+.modal-box {
+  background: var(--dark);
+  border: 1px solid rgba(201,168,76,0.35);
+  max-width: 480px;
+  width: 100%;
+  padding: 52px 48px;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform 0.35s ease;
+}
+.modal-overlay.active .modal-box {
+  transform: translateY(0);
+}
+.modal-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.modal-close {
+  position: absolute;
+  top: 16px; right: 20px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: var(--cream); }
+.modal-icon {
+  width: 56px; height: 56px;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.25);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px;
+  margin-bottom: 24px;
+}
+.modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.modal-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+.modal-form { display: flex; flex-direction: column; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+}
+.form-input {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  padding: 14px 16px;
+  outline: none;
+  transition: border-color 0.25s;
+  width: 100%;
+}
+.form-input::placeholder { color: var(--muted); font-size: 13px; }
+.form-input:focus { border-color: var(--gold3); }
+.form-submit {
+  background: var(--gold);
+  color: var(--noir);
+  border: none;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  padding: 16px;
+  cursor: pointer;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s;
+  width: 100%;
+}
+.form-submit:hover { background: var(--gold2); }
+.form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.form-privacy {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.modal-success {
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.modal-success.show { display: flex; }
+.modal-form.hide { display: none; }
+
+.success-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: rgba(37,211,102,0.1);
+  border: 1px solid rgba(37,211,102,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+}
+.success-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--white);
+}
+.success-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  color: var(--warm);
+  line-height: 1.6;
+  max-width: 340px;
+}
+.success-wpp {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: white;
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  padding: 14px 28px;
+  text-decoration: none;
+  transition: opacity 0.2s;
+  margin-top: 8px;
+}
+.success-wpp:hover { opacity: 0.9; }
+.download-progress {
+  font-size: 12px;
+  color: var(--gold);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 2px;
+  animation: pulse-text 1.5s ease-in-out infinite;
+}
+@keyframes pulse-text {
+  0%,100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+#leadLog { display: none; }
+
+@media (max-width: 600px) {
+  .modal-box { padding: 40px 28px; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="sticky-bar" id="stickyBar">
+  <span class="sticky-logo">WESLEY SILVA · CRIMINALISTA</span>
+  <button class="sticky-cta">BAIXAR GUIA GRATUITO</button>
+</div>
+
+<div class="hero" id="hero">
+
+  <div class="hero-left">
+    <div class="hero-urgency">
+      <div class="urgency-dot"></div>
+      <span class="urgency-text">Leitura essencial para familiares de presos</span>
+    </div>
+
+    <h1 class="hero-headline">
+      As próximas<br>
+      <em>72 horas</em><br>
+      são decisivas.
+    </h1>
+
+    <p class="hero-sub">
+      Guia gratuito do Dr. Wesley Silva para familiares, acusados e advogados que precisam saber exatamente o que fazer após uma prisão em flagrante.
+    </p>
+
+    <div class="hero-proof">
+      <div class="proof-item">
+        <span class="proof-number">8</span>
+        <div class="proof-label">Capítulos<br>completos</div>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">100%</span>
+        <div class="proof-label">Gratuito<br>e imediato</div>
+      </div>
+      <div class="proof-item">
+        <span class="proof-number">3</span>
+        <div class="proof-label">Públicos<br>atendidos</div>
+      </div>
+    </div>
+
+    <div class="hero-cta-group">
+      <button class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          BAIXAR GUIA GRATUITO
+        </button>
+      <button class="btn-secondary" onclick="document.getElementById('oferta').scrollIntoView({behavior:'smooth'})">
+        VER O QUE ESTÁ NO GUIA
+      </button>
+    </div>
+
+    <div class="hero-guarantee">
+      <span>🔒</span>
+      <span><strong>100% gratuito.</strong> Sem cadastro. Baixe agora.</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="book-wrapper">
+      <div class="book-glow"></div>
+      <div class="book-cover">
+        <div class="book-tag">GUIA ESSENCIAL DE DEFESA</div>
+
+        <svg class="book-icon" width="200" height="200" viewBox="0 0 80 80" fill="none">
+          <polygon points="40,4 72,18 76,52 58,76 22,76 4,52 8,18 40,4" fill="none" stroke="#C9A84C" stroke-width="2"/>
+          <line x1="18" y1="38" x2="62" y2="38" stroke="#C9A84C" stroke-width="1.5"/>
+          <line x1="40" y1="24" x2="40" y2="54" stroke="#C9A84C" stroke-width="2"/>
+          <path d="M18,38 Q16,46 27,50 Q38,54 36,38" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+          <path d="M62,38 Q64,46 53,50 Q42,54 44,38" fill="none" stroke="#C9A84C" stroke-width="1.5"/>
+        </svg>
+
+        <div class="book-title-area">
+          <span class="book-cover-word1">PRESO</span>
+          <span class="book-cover-word2">EM</span>
+          <span class="book-cover-word3">FLAGRANTE</span>
+          <div class="book-divider"></div>
+          <div class="book-subtitle">O que fazer nas primeiras 72 horas após uma prisão</div>
+        </div>
+
+        <div class="book-author">
+          <span class="book-author-name">DR. WESLEY SILVA</span>
+          <div class="book-author-title">Advogado Criminalista · OAB/MG</div>
+        </div>
+      </div>
+      <div class="book-pages"></div>
+    </div>
+  </div>
+</div>
+
+<section class="problem">
+  <div class="container">
+    <div class="problem-inner fade-in">
+      <div class="problem-left">
+        <span class="label section-label">O Problema</span>
+        <h2 class="problem-headline">
+          O desespero faz as<br>
+          pessoas cometerem<br>
+          <span class="gold italic">erros irreversíveis.</span>
+        </h2>
+        <p class="problem-text">
+          Quando a prisão acontece, a maioria das pessoas não sabe o que fazer. Falam mais do que devem. Assinam o que não deveriam. Contratam quem não é especializado.
+        </p>
+        <p class="problem-text">
+          E esses erros — cometidos nas primeiras horas — podem comprometer toda a defesa nos meses e anos seguintes.
+        </p>
+      </div>
+
+      <div class="problem-fears">
+        <div class="fear-item">
+          <div class="fear-icon">😰</div>
+          <div class="fear-text">"Meu familiar foi preso e não sei quais são os direitos dele nem o que fazer agora."</div>
+        </div>
+        <div class="fear-item">
+          <div class="fear-icon">⚖️</div>
+          <div class="fear-text">"Tenho medo de que ele fale algo na delegacia que piore a situação dele."</div>
+        </div>
+        <div class="fear-item">
+          <div class="fear-icon">💼</div>
+          <div class="fear-text">"Não sei se o advogado que contratei é realmente especializado em casos criminais."</div>
+        </div>
+        <div class="fear-item">
+          <div class="fear-icon">🔍</div>
+          <div class="fear-text">"Como saber se a prisão foi legal ou se há algo que possa ser questionado?"</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="solution" id="oferta">
+  <div class="container">
+    <div class="solution-header fade-in">
+      <div class="section-ornament">
+        <div class="line"></div>
+        <div class="diamond"></div>
+        <div class="line"></div>
+      </div>
+      <span class="label">O Que Você Vai Aprender</span>
+      <h2 class="solution-title">
+        8 capítulos que podem<br>
+        <span class="gold italic">mudar o resultado do caso.</span>
+      </h2>
+    </div>
+
+    <div class="chapters-grid fade-in">
+      <div class="chapter-card">
+        <div class="chapter-number">01</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Fui Preso — E Agora?</div>
+          <div class="chapter-desc">Os primeiros direitos garantidos pela Constituição que você precisa exercer imediatamente.</div>
+          <span class="chapter-audience">Familiares · Acusados</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">02</div>
+        <div class="chapter-info">
+          <div class="chapter-title">A Audiência de Custódia</div>
+          <div class="chapter-desc">O ato mais importante das primeiras 24 horas. Entenda o que acontece e como a defesa deve atuar.</div>
+          <span class="chapter-audience">Todos</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">03</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Flagrante Ilegal vs. Legal</div>
+          <div class="chapter-desc">Como identificar se a prisão foi legal e quais ilegalidades podem ser usadas em favor da defesa.</div>
+          <span class="chapter-audience">Advogados · Familiares</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">04</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Tráfico de Drogas</div>
+          <div class="chapter-desc">As 5 principais teses de defesa utilizadas no Brasil — do tráfico privilegiado à nulidade do flagrante.</div>
+          <span class="chapter-audience">Advogados</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">05</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Org. Criminosa e Lavagem</div>
+          <div class="chapter-desc">Entenda como o MP estrutura essas acusações e onde a defesa pode desconstruí-las.</div>
+          <span class="chapter-audience">Empresários · Familiares</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">06</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Como Contratar o Advogado Certo</div>
+          <div class="chapter-desc">Os sinais de alerta que 90% das famílias ignoram — e que custam anos de liberdade.</div>
+          <span class="chapter-audience">Familiares</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">07</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Comunicação com o Preso</div>
+          <div class="chapter-desc">O que pode ser feito com segurança e o que NUNCA deve ser dito por telefone ou visita.</div>
+          <span class="chapter-audience">Familiares</span>
+        </div>
+      </div>
+      <div class="chapter-card">
+        <div class="chapter-number">08</div>
+        <div class="chapter-info">
+          <div class="chapter-title">Tribunal do Júri</div>
+          <div class="chapter-desc">Por que a defesa no júri começa no flagrante — e como cada decisão inicial impacta o plenário.</div>
+          <span class="chapter-audience">Advogados · Todos</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class='solution' style='padding:100px 0;'>
+  <div class='container'>
+    <div class='solution-header fade-in'>
+      <div class='section-ornament'>
+        <div class='line'></div><div class='diamond'></div><div class='line'></div>
+      </div>
+      <span class='label'>Capítulo Bônus Exclusivo</span>
+      <h2 class='solution-title' style='margin-top:16px;'>
+        Mandado de Busca e Apreensão:<br>
+        <span class='gold italic'>o que ninguém te explica.</span>
+      </h2>
+      <p style='font-family:Cormorant Garamond,serif;font-size:19px;color:var(--warm);max-width:640px;margin:24px auto 0;line-height:1.7;font-weight:300;'>
+        Entender a diferença entre os tipos de mandado pode ser a linha que separa você da prisão. Este capítulo é um dos mais práticos do guia.
+      </p>
+    </div>
+
+    <div class='fade-in' style='display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px;'>
+      <div style='background:var(--panel);border:1px solid rgba(201,168,76,0.3);padding:36px;'>
+        <div style='font-family:Cinzel,serif;font-size:10px;letter-spacing:4px;color:var(--gold);margin-bottom:20px;'>CENÁRIO A</div>
+        <div style='font-family:Cormorant Garamond,serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.3;'>
+          Busca e Apreensão<br><em style='color:var(--gold);font-weight:300;'>sem</em> Mandado de Prisão
+        </div>
+        <p style='font-family:Cormorant Garamond,serif;font-size:17px;color:var(--warm);line-height:1.7;margin-bottom:20px;'>
+          Os agentes têm autorização apenas para buscar e apreender objetos ou documentos específicos. Você <strong style='color:var(--cream);'>não está sendo preso</strong> — o mandado não tem esse poder.
+        </p>
+        <div style='display:flex;flex-direction:column;gap:12px;'>
+          <div style='display:flex;gap:12px;align-items:flex-start;padding:14px;background:rgba(37,211,102,0.06);border-left:3px solid rgba(37,211,102,0.5);'>
+            <span style='color:#25D366;font-size:14px;flex-shrink:0;margin-top:2px;'>✓</span>
+            <span style='font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.5;'><strong style='color:var(--cream);'>Nada ilegal encontrado</strong> → busca encerrada, agentes se retiram, você permanece em liberdade.</span>
+          </div>
+          <div style='display:flex;gap:12px;align-items:flex-start;padding:14px;background:rgba(224,80,80,0.06);border-left:3px solid rgba(224,80,80,0.5);'>
+            <span style='color:#E05050;font-size:14px;flex-shrink:0;margin-top:2px;'>!</span>
+            <span style='font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.5;'><strong style='color:var(--cream);'>Algo ilegal encontrado</strong> → pode gerar prisão em flagrante incidental. Direito ao silêncio e ao advogado valem imediatamente.</span>
+          </div>
+        </div>
+      </div>
+
+      <div style='background:var(--panel);border:1px solid rgba(201,168,76,0.3);padding:36px;'>
+        <div style='font-family:Cinzel,serif;font-size:10px;letter-spacing:4px;color:var(--gold);margin-bottom:20px;'>CENÁRIO B</div>
+        <div style='font-family:Cormorant Garamond,serif;font-size:22px;font-weight:600;color:var(--white);margin-bottom:16px;line-height:1.3;'>
+          Busca e Apreensão<br><em style='color:var(--gold);font-weight:300;'>com</em> Mandado de Prisão
+        </div>
+        <p style='font-family:Cormorant Garamond,serif;font-size:17px;color:var(--warm);line-height:1.7;margin-bottom:20px;'>
+          Há duas ordens judiciais distintas sendo cumpridas. A prisão já está determinada — acontecerá independentemente do resultado da busca. A apreensão é complementar.
+        </p>
+        <div style='padding:16px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);'>
+          <p style='font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.6;'>
+            Neste caso, todos os direitos do preso em flagrante se aplicam desde o primeiro momento: silêncio, advogado, comunicação à família e audiência de custódia em 24h.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class='fade-in' style='background:linear-gradient(145deg,var(--dark),var(--panel));border:1px solid rgba(201,168,76,0.25);padding:40px;'>
+      <div style='font-family:Cinzel,serif;font-size:10px;letter-spacing:4px;color:var(--gold);margin-bottom:20px;'>PROTOCOLO PRÁTICO — O QUE FAZER NA HORA</div>
+      <div style='display:grid;grid-template-columns:1fr 1fr;gap:24px;'>
+        <div>
+          <div style='font-family:Cinzel,serif;font-size:11px;letter-spacing:3px;color:#25D366;margin-bottom:14px;'>✓ FAÇA</div>
+          <div style='display:flex;flex-direction:column;gap:10px;'>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:var(--gold);flex-shrink:0;'>▪</span>Exija ver e ler o mandado antes de permitir o ingresso</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:var(--gold);flex-shrink:0;'>▪</span>Contate seu advogado imediatamente por celular</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:var(--gold);flex-shrink:0;'>▪</span>Peça testemunhas — vizinhos ou familiares</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:var(--gold);flex-shrink:0;'>▪</span>Exija cópia do auto de busca ao final</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:var(--gold);flex-shrink:0;'>▪</span>Observe e memorize tudo que foi acessado e apreendido</div>
+          </div>
+        </div>
+        <div>
+          <div style='font-family:Cinzel,serif;font-size:11px;letter-spacing:3px;color:#E05050;margin-bottom:14px;'>✕ NUNCA FAÇA</div>
+          <div style='display:flex;flex-direction:column;gap:10px;'>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:#E05050;flex-shrink:0;'>▪</span>Fornecer senhas de celular ou computador sem ordem judicial</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:#E05050;flex-shrink:0;'>▪</span>Fazer declarações espontâneas sobre objetos encontrados</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:#E05050;flex-shrink:0;'>▪</span>Permitir acesso além do que o mandado autoriza</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:#E05050;flex-shrink:0;'>▪</span>Assinar qualquer documento sem seu advogado</div>
+            <div style='display:flex;gap:10px;font-family:Cormorant Garamond,serif;font-size:16px;color:var(--warm);line-height:1.4;'><span style='color:#E05050;flex-shrink:0;'>▪</span>Resistir fisicamente — isso é crime autônomo</div>
+          </div>
+        </div>
+      </div>
+      <div style='margin-top:28px;padding:18px 22px;background:rgba(201,168,76,0.08);border-left:3px solid var(--gold);'>
+        <p style='font-family:Cormorant Garamond,serif;font-size:17px;font-style:italic;color:var(--cream);line-height:1.6;'>
+          ⏰ <strong>Atualização jurisprudencial — STJ (RHC 196.496/RN, dez/2025):</strong> O período legal para cumprimento de mandado de busca domiciliar é entre <strong>5h e 21h</strong>, conforme o art. 22, III, da Lei de Abuso de Autoridade (Lei 13.869/2019). Buscas executadas fora desse intervalo, sem autorização judicial expressa para o período noturno, configuram abuso de autoridade e contaminam todas as provas obtidas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="author">
+  <div class="container">
+    <div class="author-inner fade-in">
+      <div class="author-photo-area">
+        <div class="author-photo-frame">
+          <div class="author-photo-placeholder">
+            <div class="author-monogram">WS</div>
+          </div>
+          <div class="author-photo-caption">
+            <span class="name">DR. WESLEY SILVA</span>
+          </div>
+        </div>
+        <div class="author-corner"></div>
+      </div>
+
+      <div class="author-content">
+        <span class="label">Sobre o Autor</span>
+        <h2 class="author-name">Dr. Wesley<br><span class="gold">Silva</span></h2>
+        <span class="author-credential">Advogado Criminalista · OAB/MG</span>
+
+        <p class="author-bio">
+          Especialista em Direito Penal e Processual Penal, com atuação focada nos casos mais complexos do sistema de justiça criminal brasileiro.
+        </p>
+        <p class="author-bio">
+          Ao longo de sua trajetória, acompanhou casos de alto impacto — do flagrante à sustentação oral no Tribunal do Júri — com rigor técnico e comprometimento total com a defesa dos seus clientes.
+        </p>
+
+        <div class="author-specialties">
+          <span class="specialty-tag">Tribunal do Júri</span>
+          <span class="specialty-tag">Grandes Operações</span>
+          <span class="specialty-tag">Tráfico de Drogas</span>
+          <span class="specialty-tag">Organização Criminosa</span>
+          <span class="specialty-tag">Lavagem de Capitais</span>
+          <span class="specialty-tag">Prisão em Flagrante</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="testimonials-header fade-in">
+      <span class="label">Depoimentos</span>
+      <h2 class="testimonials-title">Quem leu,<br><span class="gold italic">entendeu a diferença.</span></h2>
+    </div>
+
+    <div class="testimonials-grid fade-in">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"Quando meu irmão foi preso, eu estava completamente perdida. Esse guia me explicou em linguagem simples o que estava acontecendo e o que eu podia fazer. Foi um alívio enorme."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">CARLA M.</span>
+          <span class="testimonial-role">Familiar de acusado · Belo Horizonte/MG</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"Sou advogada ainda em início de carreira e o capítulo sobre audiência de custódia e as teses de defesa no tráfico foram extremamente práticos. Conteúdo de alto nível."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">DRA. RENATA F.</span>
+          <span class="testimonial-role">Advogada · OAB/SP</span>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-text">"O guia sobre comunicação segura com preso deveria ser obrigatório. Eu não sabia que conversas de visita podiam ser usadas contra o réu. Aprendi a me proteger."</p>
+        <div class="testimonial-author">
+          <span class="testimonial-name">ROBERTO A.</span>
+          <span class="testimonial-role">Empresário · Contagem/MG</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="container">
+    <div class="offer-box fade-in">
+      <div class="offer-eyebrow">
+        <span class="label">Oferta</span>
+      </div>
+
+      <h2 class="offer-title">
+        Receba o guia completo<br>
+        <span class="gold italic">agora, gratuitamente.</span>
+      </h2>
+
+      <p class="offer-subtitle">
+        Baixe agora em PDF. Sem cadastro, sem burocracia.
+      </p>
+
+      <div class="offer-price-area">
+        <span class="offer-free">GRATUITO</span>
+        <div class="offer-free-label">Acesso imediato · PDF completo</div>
+      </div>
+
+      <div class="offer-includes">
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          E-book completo: 8 capítulos de defesa criminal
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          Linguagem acessível para familiares e técnica para advogados
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          Guia de direitos na audiência de custódia
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          As 5 teses de defesa em casos de tráfico
+        </div>
+        <div class="include-item">
+          <div class="include-check">✓</div>
+          Acesso direto ao Dr. Wesley Silva via WhatsApp
+        </div>
+      </div>
+
+      <div class="offer-cta-group">
+        <button class="btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 16l-5-5 1.41-1.41L11 13.17V4h2v9.17l2.59-2.58L17 11l-5 5zm-7 3v-2h14v2H5z"/>
+            </svg>
+            BAIXAR GUIA GRATUITAMENTE
+          </button>
+
+        <div class="offer-trust">
+          <div class="trust-item">
+            <span class="trust-icon">🔒</span>
+            <span>Seus dados estão seguros</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">⚡</span>
+            <span>Entrega imediata</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-icon">📱</span>
+            <span>Funciona em qualquer celular</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <div class="faq-header fade-in">
+      <span class="label">Dúvidas Frequentes</span>
+      <h2 class="faq-title">Perguntas que<br><span class="gold italic">todo mundo faz</span></h2>
+    </div>
+
+    <div class="faq-list fade-in">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          O guia é realmente gratuito?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim, completamente. Clique em Baixar, preencha seus dados e o PDF abre na hora. Não há nenhuma cobrança envolvida.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          O conteúdo serve para quem não é advogado?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Sim. O guia foi escrito para três públicos diferentes: familiares de acusados, empresários e pessoas leigas que precisam entender o processo de forma clara, e advogados que querem aprofundar seu conhecimento técnico em defesa criminal.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Posso usar o guia para um caso que já está em andamento?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">O guia é focado nas primeiras 72 horas, mas grande parte do conteúdo — especialmente os capítulos sobre teses de defesa, comunicação segura e Tribunal do Júri — é útil em qualquer fase do processo.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Como funciona o atendimento do Dr. Wesley Silva?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">O Dr. Wesley atua em defesa técnica em processos criminais, com foco em Tribunal do Júri, grandes operações, tráfico, organização criminosa e lavagem de capitais. O primeiro contato é pelo WhatsApp.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          O guia substitui a contratação de um advogado?
+          <div class="faq-icon">+</div>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">Não — e o guia deixa isso claro desde o início. Ele existe para que você não cometa erros críticos nas primeiras horas e saiba exatamente o que perguntar ao seu advogado.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="section-ornament" style="margin-bottom:40px;">
+      <div class="line"></div>
+      <div class="diamond"></div>
+      <div class="line"></div>
+    </div>
+    <span class="label">Último Passo</span>
+    <h2 class="final-cta-title">
+      O conhecimento que pode<br>
+      <span class="gold italic">proteger quem você ama.</span>
+    </h2>
+    <button class="final-cta-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 16l-5-5 1.41-1.41L11 13.17V4h2v9.17l2.59-2.58L17 11l-5 5zm-7 3v-2h14v2H5z"/>
+      </svg>
+      BAIXAR GRATUITAMENTE AGORA
+    </button>
+  </div>
+</section>
+
+<footer>
+  <span class="footer-logo">WESLEY SILVA · CRIMINALISTA</span>
+  <p>OAB/MG · Advocacia Criminal de Alto Padrão</p>
+  <p>Tribunal do Júri · Grandes Operações · Tráfico · Organização Criminosa · Lavagem de Capitais</p>
+  <div class="footer-links">
+    <a href="https://wa.me/5531983737187" target="_blank">WhatsApp</a>
+    <a href="https://instagram.com/wesley.silvaadv" target="_blank">Instagram</a>
+  </div>
+  <p style="margin-top:20px;font-size:11px;">© 2025 Wesley dos Santos Silva · Todos os direitos reservados · Este material tem fins educativos e não constitui consultoria jurídica.</p>
+</footer>
+
+<a class="whatsapp-float" href="https://wa.me/5531983737187" target="_blank" title="Falar no WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+const stickyBar = document.getElementById('stickyBar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) stickyBar.classList.add('visible');
+  else stickyBar.classList.remove('visible');
+});
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const LEADS_KEY = 'ws_leads';
+
+function openModal() {
+  document.getElementById('modalOverlay').classList.add('active');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalForm').classList.remove('hide');
+  document.getElementById('modalSuccess').classList.remove('show');
+  document.getElementById('submitBtn').disabled = false;
+  document.getElementById('leadName').value = '';
+  document.getElementById('leadPhone').value = '';
+  setTimeout(() => document.getElementById('leadName').focus(), 100);
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('modalOverlay').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+function formatPhone(input) {
+  let v = input.value.replace(/\D/g, '').slice(0, 11);
+  if (v.length >= 11)      v = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+  else if (v.length >= 7)  v = `(${v.slice(0,2)}) ${v.slice(2,6)}-${v.slice(6)}`;
+  else if (v.length >= 3)  v = `(${v.slice(0,2)}) ${v.slice(2)}`;
+  input.value = v;
+}
+
+function handleDownload() {
+  const name  = document.getElementById('leadName').value.trim();
+  const phone = document.getElementById('leadPhone').value.trim();
+
+  if (!name) {
+    document.getElementById('leadName').focus();
+    document.getElementById('leadName').style.borderColor = '#C84848';
+    return;
+  }
+  if (phone.replace(/\D/g,'').length < 10) {
+    document.getElementById('leadPhone').focus();
+    document.getElementById('leadPhone').style.borderColor = '#C84848';
+    return;
+  }
+
+  const lead = { name, phone, date: new Date().toLocaleString('pt-BR') };
+  const leads = JSON.parse(localStorage.getItem(LEADS_KEY) || '[]');
+  leads.push(lead);
+  localStorage.setItem(LEADS_KEY, JSON.stringify(leads));
+
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('modalForm').classList.add('hide');
+  document.getElementById('modalSuccess').classList.add('show');
+  document.getElementById('successMsg').innerHTML =
+    `Olá, <strong style="color:var(--gold)">${name}</strong>! Seu guia está sendo baixado.<br>Salve-o para consultar sempre que precisar.`;
+
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const pdfUrl = isIOS
+    ? 'https://drive.google.com/file/d/1nMVQ4tZw5W4cfflD_d-dAgCeRHbcrNeO/preview'
+    : 'https://drive.google.com/uc?export=download&id=1nMVQ4tZw5W4cfflD_d-dAgCeRHbcrNeO';
+
+  const a = document.createElement('a');
+  a.href = pdfUrl;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  document.getElementById('downloadProgress').textContent = '✓ Abrindo seu guia...';
+  document.getElementById('downloadProgress').style.animation = 'none';
+  document.getElementById('downloadProgress').style.opacity = '1';
+  document.getElementById('downloadProgress').style.color = '#25D366';
+
+  const wppMsg = encodeURIComponent(
+    `Olá, Dr. Wesley! Sou ${name}. Acabei de baixar o guia "Preso em Flagrante" e gostaria de saber mais.`
+  );
+  document.getElementById('wppLink').href =
+    `https://wa.me/5531983737187?text=${wppMsg}`;
+}
+
+document.querySelectorAll('.btn-primary, .sticky-cta, .final-cta-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    openModal();
+  });
+});
+
+function showLeads() {
+  const leads = JSON.parse(localStorage.getItem('ws_leads') || '[]');
+  if (!leads.length) { console.log('Nenhum lead ainda.'); return; }
+  console.table(leads);
+  const csv = ['Nome,WhatsApp,Data', ...leads.map(l => `${l.name},${l.phone},${l.date}`)].join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'leads_wesley_silva.csv';
+  a.click();
+}
+window.showLeads = showLeads;
+</script>
+
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    
+    <div class="modal-icon">📘</div>
+    <div class="modal-title">Receba o guia<br>agora mesmo</div>
+    <div class="modal-sub">Preencha abaixo e o download<br>começa automaticamente.</div>
+
+    <div class="modal-form" id="modalForm">
+      <div class="form-group">
+        <label class="form-label">Seu nome</label>
+        <input class="form-input" type="text" id="leadName" 
+               placeholder="Como podemos te chamar?" autocomplete="given-name"/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">WhatsApp (com DDD)</label>
+        <input class="form-input" type="tel" id="leadPhone" 
+               placeholder="(31) 9 8373-0000" autocomplete="tel"
+               oninput="formatPhone(this)"/>
+      </div>
+      <button class="form-submit" id="submitBtn" onclick="handleDownload()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 16l-5-5 1.41-1.41L11 13.17V4h2v9.17l2.59-2.58L17 11l-5 5zm-7 3v-2h14v2H5z"/>
+        </svg>
+        BAIXAR GUIA GRATUITAMENTE
+      </button>
+      <p class="form-privacy">🔒 Seus dados estão seguros. Sem spam, prometido.</p>
+    </div>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✓</div>
+      <div class="success-title">Download iniciado!</div>
+      <p class="success-sub" id="successMsg">
+        O guia está sendo baixado agora.<br>
+        Salve-o para consultar sempre que precisar.
+      </p>
+      <div class="download-progress" id="downloadProgress">⬇ Baixando PDF...</div>
+      <a class="success-wpp" id="wppLink" href="#" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        FALAR COM DR. WESLEY
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
